@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace InternalOrderApi.Helper
+namespace ExternalSiteInvestigationApi.Helper
 {
     public static class ApiVersioning
     {
@@ -12,7 +12,7 @@ namespace InternalOrderApi.Helper
                 a.AssumeDefaultVersionWhenUnspecified = true;
                 a.DefaultApiVersion = new ApiVersion(1, 0);
 
-                a.Conventions.Controller<Controllers.V1.OrdersController>().HasApiVersion(new ApiVersion(1, 0));
+                a.Conventions.Controller<Controllers.V1.SiteInvestigationRequestsController>().HasApiVersion(new ApiVersion(1, 0));
             });
         }
     }

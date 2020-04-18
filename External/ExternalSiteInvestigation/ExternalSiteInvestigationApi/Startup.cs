@@ -1,12 +1,11 @@
-using InternalOrderApi.Helper;
+using ExternalSiteInvestigationApi.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace InternalOrderApi
+namespace ExternalSiteInvestigationApi
 {
     public class Startup
     {
@@ -21,9 +20,9 @@ namespace InternalOrderApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            var connectionString = Configuration.GetConnectionString("Default");
+            var internalOrderUrl = Configuration.GetSection("InternalOrderUrl").Get<string>();
 
-            Dependency.SetDependency(ref services, connectionString);
+            Dependency.SetDependency(ref services, internalOrderUrl);
             services.AddSingleton(AutoMapperConfig.Config());
 
             ApiVersioning.SetVersion(ref services);
@@ -36,8 +35,6 @@ namespace InternalOrderApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
