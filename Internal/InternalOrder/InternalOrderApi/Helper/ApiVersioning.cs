@@ -11,6 +11,8 @@ namespace InternalOrderApi.Helper
                 a.ReportApiVersions = true;
                 a.AssumeDefaultVersionWhenUnspecified = true;
                 a.DefaultApiVersion = new ApiVersion(1, 0);
+
+                a.Conventions.Controller<Controllers.V1.OrderController>().HasApiVersion(new ApiVersion(1, 0));
             });
         }
     }
