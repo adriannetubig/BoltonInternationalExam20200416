@@ -12,7 +12,7 @@ namespace InternalOrderApi.Helper
                 a.AssumeDefaultVersionWhenUnspecified = true;
                 a.DefaultApiVersion = new ApiVersion(1, 0);
 
-                a.Conventions.Controller<Controllers.V1.OrderController>().HasApiVersion(new ApiVersion(1, 0));
+                a.Conventions.Controller<Controllers.V1.OrdersController>().HasApiVersion(new ApiVersion(1, 0));
             });
         }
     }

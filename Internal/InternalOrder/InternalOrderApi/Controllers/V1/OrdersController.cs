@@ -5,11 +5,11 @@ using System.Net;
 
 namespace InternalOrderApi.Controllers.V1
 {
-    public class OrderController: BaseV1Controller
+    public class OrdersController: BaseV1Controller
     {
         private readonly IBusinessServiceOrder _iBusinessServiceOrder;
 
-        public OrderController(IBusinessServiceOrder iBusinessServiceOrder)
+        public OrdersController(IBusinessServiceOrder iBusinessServiceOrder)
         {
             _iBusinessServiceOrder = iBusinessServiceOrder;
         }
