@@ -1,5 +1,7 @@
-﻿using ExternalSiteInvestigationBusiness.Interfaces;
-using ExternalSiteInvestigationBusiness.Services;
+﻿using ExternalSiteInvestigationBusiness.BusinessInterfaces;
+using ExternalSiteInvestigationBusiness.BusinessServices;
+using ExternalSiteInvestigationBusiness.DataInterfaces;
+using ExternalSiteInvestigationHttpClientDataService.DataServices;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
@@ -9,7 +11,8 @@ namespace ExternalSiteInvestigationApi.Helper
     {
         public static void SetDependency(ref IServiceCollection services, string internalOrderUrl)
         {
-            services.AddScoped<IBusinessServiceOrder>(a => new BusinessServiceOrder(internalOrderUrl));
+            services.AddScoped<IDataServiceOrder>(a => new DataServiceOrder(internalOrderUrl));
+            services.AddScoped<IBusinessServiceOrder, BusinessServiceOrder>();
 
             services.AddSwaggerGen(a =>
             {

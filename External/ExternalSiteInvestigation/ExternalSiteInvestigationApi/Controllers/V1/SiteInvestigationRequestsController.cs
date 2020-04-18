@@ -1,4 +1,4 @@
-﻿using ExternalSiteInvestigationBusiness.Interfaces;
+﻿using ExternalSiteInvestigationBusiness.BusinessInterfaces;
 using ExternalSiteInvestigationBusiness.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;

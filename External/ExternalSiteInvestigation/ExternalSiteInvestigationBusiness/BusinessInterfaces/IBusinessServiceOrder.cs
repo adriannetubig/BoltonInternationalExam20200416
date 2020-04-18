@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ExternalSiteInvestigationBusiness.Interfaces
+namespace ExternalSiteInvestigationBusiness.BusinessInterfaces
 {
     public interface IBusinessServiceOrder
     {

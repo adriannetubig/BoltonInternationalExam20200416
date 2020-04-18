@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExternalSiteInvestigationBusiness\ExternalSiteInvestigationBusiness.csproj" />
+    <ProjectReference Include="..\ExternalSiteInvestigationHttpClientDataService\ExternalSiteInvestigationHttpClientDataService.csproj" />
   </ItemGroup>
 
 
