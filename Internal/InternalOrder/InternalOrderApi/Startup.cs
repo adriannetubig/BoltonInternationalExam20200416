@@ -24,7 +24,7 @@ namespace InternalOrderApi
             var connectionString = Configuration.GetConnectionString("Default");
 
             Dependency.SetDependency(ref services, connectionString);
-            services.AddSingleton(Helper.AutoMapperConfig.Config());
+            services.AddSingleton(AutoMapperConfig.Config());
 
             ApiVersioning.SetVersion(ref services);
         }
