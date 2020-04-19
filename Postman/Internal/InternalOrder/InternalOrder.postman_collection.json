@@ -37,13 +37,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/Order",
+							"raw": "{{url}}api/Orders",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
-								"v1",
-								"Order"
+								"Orders"
 							]
 						}
 					},
@@ -84,13 +83,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/Order",
+							"raw": "{{url}}api/v1/Orders",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
-								"Order"
+								"Orders"
 							]
 						}
 					},
@@ -102,7 +101,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"id": "2d740e50-8b22-4d3f-bc9c-5a321e762e3e",
 								"exec": [
 									"pm.test(\"Status Code Should be 415\", function () {\r",
 									"    pm.response.to.have.status(415);\r",
@@ -125,13 +124,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/Order",
+							"raw": "{{url}}api/v1/Orders",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
-								"Order"
+								"Orders"
 							]
 						}
 					},
@@ -166,13 +165,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/Order",
+							"raw": "{{url}}api/v1/Orders",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
-								"Order"
+								"Orders"
 							]
 						}
 					},
@@ -207,13 +206,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/Order",
+							"raw": "{{url}}api/v1/Orders",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
-								"Order"
+								"Orders"
 							]
 						}
 					},
@@ -248,13 +247,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/Order",
+							"raw": "{{url}}api/v1/Orders",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
-								"Order"
+								"Orders"
 							]
 						}
 					},
