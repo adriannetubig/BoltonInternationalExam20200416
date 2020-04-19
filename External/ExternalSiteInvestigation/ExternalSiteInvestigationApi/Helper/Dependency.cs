@@ -9,9 +9,12 @@ namespace ExternalSiteInvestigationApi.Helper
 {
     public static class Dependency
     {
-        public static void SetDependency(ref IServiceCollection services, string internalOrderUrl)
+        public static void SetDependency(ref IServiceCollection services, string internalDomainCheckUrl, string internalOrderUrl)
         {
+            services.AddScoped<IDataServiceDomainCheck>(a => new DataServiceDomainCheck(internalDomainCheckUrl));
             services.AddScoped<IDataServiceOrder>(a => new DataServiceOrder(internalOrderUrl));
+
+            services.AddScoped<IBusinessServiceDomainCheck, BusinessServiceDomainCheck>();
             services.AddScoped<IBusinessServiceOrder, BusinessServiceOrder>();
 
             services.AddSwaggerGen(a =>

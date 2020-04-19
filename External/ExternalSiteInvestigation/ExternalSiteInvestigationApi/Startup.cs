@@ -20,9 +20,10 @@ namespace ExternalSiteInvestigationApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            var internalDomainCheckUrl = Configuration.GetSection("InternalDomainCheckUrl").Get<string>();
             var internalOrderUrl = Configuration.GetSection("InternalOrderUrl").Get<string>();
 
-            Dependency.SetDependency(ref services, internalOrderUrl);
+            Dependency.SetDependency(ref services, internalDomainCheckUrl, internalOrderUrl);
             services.AddSingleton(AutoMapperConfig.Config());
 
             ApiVersioning.SetVersion(ref services);

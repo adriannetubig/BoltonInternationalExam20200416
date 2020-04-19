@@ -11,6 +11,8 @@ namespace ExternalSiteInvestigationApi.Helper
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.CreateMap<EntityOrder, Order>().ReverseMap();
+                mc.CreateMap<EntityDomainCheck, DomainCheck>().ReverseMap();
+                mc.CreateMap<EntityIpAddressCheck, IpAddressCheck>().ReverseMap();
             });
 
             IMapper mapper = mappingConfig.CreateMapper();

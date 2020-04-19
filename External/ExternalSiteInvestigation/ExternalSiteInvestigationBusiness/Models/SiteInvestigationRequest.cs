@@ -6,5 +6,6 @@ namespace ExternalSiteInvestigationBusiness.Models
     {
         [Required, MaxLength(50), MinLength(4)]
         public string CustomerName { get; set; }
+        public string Domain { get; set; }
     }
 }
