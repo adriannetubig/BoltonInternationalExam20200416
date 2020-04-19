@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "6383244d-84c6-4ecc-914e-99919810cd05",
+		"name": "ExternalSiteInvestigation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "V1",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"exec": [
+									"pm.test(\"Status Code Should be 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"customerName\",\r\n  \"domain\": \"localhost\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Runner",
+			"item": [
+				{
+					"name": "Happy Path",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"exec": [
+									"pm.test(\"Status Code Should be 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"customerName\",\r\n  \"domain\": \"localhost\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "No Json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d740e50-8b22-4d3f-bc9c-5a321e762e3e",
+								"exec": [
+									"pm.test(\"Status Code Should be 415\", function () {\r",
+									"    pm.response.to.have.status(415);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerName is Required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"exec": [
+									"pm.test(\"Status Code Should be 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerName minimum character is 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"exec": [
+									"pm.test(\"Status Code Should be 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerName maximum character is 50",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"exec": [
+									"pm.test(\"Status Code Should be 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"123456789112345678921234567893123456789412345678951\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ValidDomain",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"exec": [
+									"pm.test(\"Status Code Should be 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.test(\"Succeeded\", function () {\r",
+									"    pm.expect(jsonData.isDomainValid).to.eql(true);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"customerName\",\r\n  \"domain\": \"localhost\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InValidDomain",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d203db6-f4f2-4d4a-a7a8-9cf12887a2e4",
+								"exec": [
+									"pm.test(\"Status Code Should be 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.test(\"Succeeded\", function () {\r",
+									"    pm.expect(jsonData.isDomainValid).to.eql(false);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"customerName\",\r\n  \"domain\": \"invaliddomain\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/SiteInvestigationRequests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"SiteInvestigationRequests"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

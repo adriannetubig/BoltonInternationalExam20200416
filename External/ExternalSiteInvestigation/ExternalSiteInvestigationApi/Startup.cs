@@ -20,9 +20,10 @@ namespace ExternalSiteInvestigationApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            var internalDomainCheckUrl = Configuration.GetSection("InternalDomainCheckUrl").Get<string>();
             var internalOrderUrl = Configuration.GetSection("InternalOrderUrl").Get<string>();
 
-            Dependency.SetDependency(ref services, internalOrderUrl);
+            Dependency.SetDependency(ref services, internalDomainCheckUrl, internalOrderUrl);
             services.AddSingleton(AutoMapperConfig.Config());
 
             ApiVersioning.SetVersion(ref services);
@@ -43,7 +44,7 @@ namespace ExternalSiteInvestigationApi
             app.UseSwagger();
             app.UseSwaggerUI(a =>
             {
-                a.SwaggerEndpoint("/swagger/v1/swagger.json", "Internal Order V1");
+                a.SwaggerEndpoint("/swagger/v1/swagger.json", "External Site Investigator");
                 a.RoutePrefix = string.Empty;
             });
 

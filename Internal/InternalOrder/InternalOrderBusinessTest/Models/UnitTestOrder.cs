@@ -10,7 +10,7 @@ namespace InternalOrderBusinessTest.Models
     public class UnitTestOrder
     {
         [Fact]
-        public void TestOrder()
+        public void TestOrderCustomerName()
         {
             var order = new Order();
             order.CustomerName = "UnitTest";
@@ -18,30 +18,16 @@ namespace InternalOrderBusinessTest.Models
             Assert.True(validationResults.Count == 0);
         }
 
-        [Fact]
-        public void TestOrderCustomerNameIsRequired()
+        [Theory]
+        [InlineData("", "CustomerName is Required")]
+        [InlineData("123", "CustomerName should be more than 3 characters")]
+        [InlineData("123456789112345678921234567893123456789412345678951", "CustomerName should be less than 51 characters")]
+        public void TestOrderCustomerNameRestrictions(string orderName, string message)
         {
             var order = new Order();
+            order.CustomerName = orderName;
             var validationResults = ValidateModel(order);
-            Assert.Contains(validationResults, a => a.MemberNames.Contains("CustomerName"));
-        }
-
-        [Fact]
-        public void TestOrderCustomerNameShouldBeMoreThan3Characters()
-        {
-            var order = new Order();
-            order.CustomerName = "123";
-            var validationResults = ValidateModel(order);
-            Assert.Contains(validationResults, a => a.MemberNames.Contains("CustomerName"));
-        }
-
-        [Fact]
-        public void TestOrderCustomerNameShouldBeMoreLessThan50Characters()
-        {
-            var order = new Order();
-            order.CustomerName = "123456789112345678921234567893123456789412345678951";
-            var validationResults = ValidateModel(order);
-            Assert.Contains(validationResults, a => a.MemberNames.Contains("CustomerName"));
+            Assert.True(validationResults.Any(a => a.MemberNames.Any(b => b == "CustomerName")), message);
         }
 
         private IList<ValidationResult> ValidateModel(object model) //ToDo: Cross Cutting Concern.
