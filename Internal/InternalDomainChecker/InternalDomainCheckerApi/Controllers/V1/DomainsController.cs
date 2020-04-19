@@ -1,5 +1,4 @@
-﻿using InternalDomainCheckerBusiness.BusinessInterfaces;
-using InternalDomainCheckerBusiness.Models;
+﻿using InternalDomainCheckerApi.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Threading.Tasks;
@@ -8,35 +7,17 @@ namespace InternalDomainCheckerApi.Controllers.V1
 {
     public class DomainsController : BaseV1Controller
     {
-        private readonly IBusinessServiceDomain _iBusinessServiceDomain;
-        private readonly IBusinessServiceDomainIpAddress _iBusinessServiceDomainIpAddress;
-        private readonly IBusinessServiceOpenPort _iBusinessServiceOpenPort;
+        private readonly IAppServiceDomain _iAppServiceDomain;
 
-        public DomainsController(IBusinessServiceDomain iBusinessServiceDomain, IBusinessServiceDomainIpAddress iBusinessServiceDomainIpAddress,
-            IBusinessServiceOpenPort iBusinessServiceOpenPort)
+        public DomainsController(IAppServiceDomain iAppServiceDomain)
         {
-            _iBusinessServiceDomain = iBusinessServiceDomain;
-            _iBusinessServiceDomainIpAddress = iBusinessServiceDomainIpAddress;
-            _iBusinessServiceOpenPort = iBusinessServiceOpenPort;
+            _iAppServiceDomain = iAppServiceDomain;
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Create(Domain domain)
+        [HttpGet("{orderId}/{domainName}")]
+        public async Task<IActionResult> Read(int orderId, string domainName)
         {
-            //ToDo: return a more detailed response.
-            //ToDo: create app service
-            domain = await _iBusinessServiceDomain.Create(domain);
-            var domainIpAddresses = await _iBusinessServiceDomainIpAddress.RetrieveIpAddressOfDomain(domain);
-            foreach (var domainIpAddress in domainIpAddresses)
-            {
-                var openPorts = await _iBusinessServiceOpenPort.CheckOpenPorts(domainIpAddress);
-            }
-
-            //Todo: Below code is a cross cutting concern
-            return new ObjectResult(domain)
-            {
-                StatusCode = (int)HttpStatusCode.Created
-            };
+            return await _iAppServiceDomain.DomainCheck(orderId, domainName);
         }
     }
 }

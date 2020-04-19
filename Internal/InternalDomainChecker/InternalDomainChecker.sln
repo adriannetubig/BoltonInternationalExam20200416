@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalDomainCheckerEFData
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalDomainCheckerApi", "InternalDomainCheckerApi\InternalDomainCheckerApi.csproj", "{748CA061-7121-49FD-95FE-ED1A37FCFA06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalDomainCheckerSystemNetData", "InternalDomainCheckerSystemNetData\InternalDomainCheckerSystemNetData.csproj", "{501FB5AD-3627-4CD5-9A0D-1857E7E6C9C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{748CA061-7121-49FD-95FE-ED1A37FCFA06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748CA061-7121-49FD-95FE-ED1A37FCFA06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{748CA061-7121-49FD-95FE-ED1A37FCFA06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{501FB5AD-3627-4CD5-9A0D-1857E7E6C9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501FB5AD-3627-4CD5-9A0D-1857E7E6C9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501FB5AD-3627-4CD5-9A0D-1857E7E6C9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501FB5AD-3627-4CD5-9A0D-1857E7E6C9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

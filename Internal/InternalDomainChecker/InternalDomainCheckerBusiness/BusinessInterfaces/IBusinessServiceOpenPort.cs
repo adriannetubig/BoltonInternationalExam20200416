@@ -6,6 +6,6 @@ namespace InternalDomainCheckerBusiness.BusinessInterfaces
 {
     public interface IBusinessServiceOpenPort
     {
-        Task<List<int>> CheckOpenPorts(DomainIpAddress domainIpAddress);
+        List<int> CheckOpenPorts(DomainIpAddress domainIpAddress);
     }
 }

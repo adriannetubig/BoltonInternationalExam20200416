@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\InternalDomainCheckerBusiness\InternalDomainCheckerBusiness.csproj" />
     <ProjectReference Include="..\InternalDomainCheckerEFData\InternalDomainCheckerEFData.csproj" />
+    <ProjectReference Include="..\InternalDomainCheckerSystemNetData\InternalDomainCheckerSystemNetData.csproj" />
   </ItemGroup>
 
   <ItemGroup>

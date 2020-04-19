@@ -4,7 +4,6 @@ using InternalDomainCheckerBusiness.DataInterfaces;
 using InternalDomainCheckerBusiness.Entities;
 using InternalDomainCheckerBusiness.Models;
 using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace InternalDomainCheckerBusiness.BusinessServices
@@ -13,19 +12,20 @@ namespace InternalDomainCheckerBusiness.BusinessServices
     {
         private readonly IMapper _iMapper;
         private readonly IDataServiceDomainIpAddress _iDataServiceDomainIpAddress;
+        private readonly IDataServiceNetwork _iDataServiceNetwork;
 
-        public BusinessServiceDomainIpAddress(IMapper iMapper, IDataServiceDomainIpAddress iDataServiceDomainIpAddress)
+        public BusinessServiceDomainIpAddress(IMapper iMapper, IDataServiceDomainIpAddress iDataServiceDomainIpAddress, IDataServiceNetwork iDataServiceNetwork)
         {
             _iMapper = iMapper;
             _iDataServiceDomainIpAddress = iDataServiceDomainIpAddress;
+            _iDataServiceNetwork = iDataServiceNetwork;
         }
 
         public async Task<List<DomainIpAddress>> RetrieveIpAddressOfDomain(Domain domain)
         {
             var domainIpAddresses = new List<DomainIpAddress>();
-            var ipAddresses = await Dns.GetHostAddressesAsync(domain.DomainName); //ToDo: this will not be testable
-
-            foreach(var ipAddress in ipAddresses)
+            var ipAddresses = _iDataServiceNetwork.RetrieveIpAddress(domain.DomainName);
+            foreach (var ipAddress in ipAddresses)
             {
                 var entityDomainIpAddress = new EntityDomainIpAddress
                 {

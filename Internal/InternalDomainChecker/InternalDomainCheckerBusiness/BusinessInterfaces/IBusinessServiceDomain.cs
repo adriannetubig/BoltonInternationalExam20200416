@@ -5,6 +5,7 @@ namespace InternalDomainCheckerBusiness.BusinessInterfaces
 {
     public interface IBusinessServiceDomain
     {
-        Task<Domain> Create(Domain domain);
+        Task<Domain> Create(int orderId, string domain);
+        bool ValidDomain(string domainName);
     }
 }
