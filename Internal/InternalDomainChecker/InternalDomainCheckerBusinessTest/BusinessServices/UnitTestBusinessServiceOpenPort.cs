@@ -27,7 +27,7 @@ namespace InternalDomainCheckerBusinessTest.BusinessServices
         [Theory]
         [InlineData(true, true, "Happy Path")]
         [InlineData(false, false, "Port not available")]
-        public void CheckOpenPorts(bool portAccessible, bool portInResult, string message)
+        public void TestCheckOpenPorts(bool portAccessible, bool portInResult, string message)
         {
             _moqDataServiceNetwork.Setup(a => a.PortAccessible(It.IsAny<int>(), It.IsAny<string>())).Returns(portAccessible);
             _moqDataServiceOpenPort.Setup(a => a.Create(It.IsAny<EntityOpenPort>())).Returns(Task.FromResult(default(object)));
