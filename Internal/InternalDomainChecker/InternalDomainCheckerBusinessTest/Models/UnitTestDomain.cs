@@ -27,7 +27,6 @@ namespace InternalDomainCheckerBusinessTest.Models
             var domain = new Domain();
             domain.DomainName = domainName;
             var validationResults = ValidateModel(domain);
-            Assert.Contains(validationResults, a => a.MemberNames.Contains("DomainName"));
             Assert.True(validationResults.Any(a => a.MemberNames.Any(b => b == "DomainName")), message);
         }
 
