@@ -1,6 +1,5 @@
 ﻿using InternalDomainCheckerApi.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace InternalDomainCheckerApi.Controllers.V1
