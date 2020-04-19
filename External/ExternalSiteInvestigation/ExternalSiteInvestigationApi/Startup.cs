@@ -43,7 +43,7 @@ namespace ExternalSiteInvestigationApi
             app.UseSwagger();
             app.UseSwaggerUI(a =>
             {
-                a.SwaggerEndpoint("/swagger/v1/swagger.json", "Internal Order V1");
+                a.SwaggerEndpoint("/swagger/v1/swagger.json", "External Site Investigator");
                 a.RoutePrefix = string.Empty;
             });
 

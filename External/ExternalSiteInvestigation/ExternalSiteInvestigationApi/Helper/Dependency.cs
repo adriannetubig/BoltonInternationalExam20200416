@@ -16,7 +16,7 @@ namespace ExternalSiteInvestigationApi.Helper
 
             services.AddSwaggerGen(a =>
             {
-                a.SwaggerDoc("v1", new OpenApiInfo { Title = "Internal Order", Version = "v1" }); //ToDo: use this drop down for versioning
+                a.SwaggerDoc("v1", new OpenApiInfo { Title = "External Site Investigator", Version = "v1" }); //ToDo: use this drop down for versioning
             });
         }
     }
