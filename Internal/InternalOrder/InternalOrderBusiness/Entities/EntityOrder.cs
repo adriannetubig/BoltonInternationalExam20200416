@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace InternalOrderBusiness.Entities
 {
     [Table("Order")]
-
     public class EntityOrder
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
