@@ -1,4 +1,6 @@
-﻿using ExternalSiteInvestigationBusiness.BusinessInterfaces;
+﻿using ExternalSiteInvestigationApi.Interfaces;
+using ExternalSiteInvestigationApi.Services;
+using ExternalSiteInvestigationBusiness.BusinessInterfaces;
 using ExternalSiteInvestigationBusiness.BusinessServices;
 using ExternalSiteInvestigationBusiness.DataInterfaces;
 using ExternalSiteInvestigationHttpClientDataService.DataServices;
@@ -16,6 +18,8 @@ namespace ExternalSiteInvestigationApi.Helper
 
             services.AddScoped<IBusinessServiceDomainCheck, BusinessServiceDomainCheck>();
             services.AddScoped<IBusinessServiceOrder, BusinessServiceOrder>();
+
+            services.AddScoped<IAppServiceSiteInvestigationRequest, AppServiceSiteInvestigationRequest>();
 
             services.AddSwaggerGen(a =>
             {

@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalSiteInvestigationBu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalSiteInvestigationApi", "ExternalSiteInvestigationApi\ExternalSiteInvestigationApi.csproj", "{5CF9AB6F-6B8A-4B56-A29E-F9658288F5C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalSiteInvestigationHttpClientDataService", "ExternalSiteInvestigationHttpClientDataService\ExternalSiteInvestigationHttpClientDataService.csproj", "{0B0154F1-0063-40CF-88EE-404492D46440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalSiteInvestigationHttpClientDataService", "ExternalSiteInvestigationHttpClientDataService\ExternalSiteInvestigationHttpClientDataService.csproj", "{0B0154F1-0063-40CF-88EE-404492D46440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalSiteInvestigationBusinessTest", "ExternalSiteInvestigationBusinessTest\ExternalSiteInvestigationBusinessTest.csproj", "{C85A4E8C-B1E0-4214-ACA9-F3D74FD93B85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalSiteInvestigationTest", "ExternalSiteInvestigationTest\ExternalSiteInvestigationTest.csproj", "{73C8C682-2E98-4AEE-9504-5936FC7EF98A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{0B0154F1-0063-40CF-88EE-404492D46440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B0154F1-0063-40CF-88EE-404492D46440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B0154F1-0063-40CF-88EE-404492D46440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C85A4E8C-B1E0-4214-ACA9-F3D74FD93B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85A4E8C-B1E0-4214-ACA9-F3D74FD93B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85A4E8C-B1E0-4214-ACA9-F3D74FD93B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85A4E8C-B1E0-4214-ACA9-F3D74FD93B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C8C682-2E98-4AEE-9504-5936FC7EF98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C8C682-2E98-4AEE-9504-5936FC7EF98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C8C682-2E98-4AEE-9504-5936FC7EF98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C8C682-2E98-4AEE-9504-5936FC7EF98A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

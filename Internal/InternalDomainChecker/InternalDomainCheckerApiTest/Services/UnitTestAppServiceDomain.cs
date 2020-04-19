@@ -17,7 +17,6 @@ namespace InternalDomainCheckerApiTest.Services
         private Domain _domain;
         private List<DomainIpAddress> _domainIpAddresses;
 
-
         Mock<IBusinessServiceDomain> _moqBusinessServiceDomain;
         Mock<IBusinessServiceDomainIpAddress> _moqBusinessServiceDomainIpAddress;
         Mock<IBusinessServiceOpenPort> _moqBusinessServiceOpenPort;
