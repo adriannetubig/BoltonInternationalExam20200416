@@ -11,12 +11,14 @@ namespace ExternalSiteInvestigationApi.Helper
 {
     public static class Dependency
     {
-        public static void SetDependency(ref IServiceCollection services, string internalDomainCheckUrl, string internalOrderUrl)
+        public static void SetDependency(ref IServiceCollection services, string internalDomainCheckUrl, string internalOrderUrl, string internalVirusTotalIntegrationUrl)
         {
             services.AddScoped<IDataServiceDomainCheck>(a => new DataServiceDomainCheck(internalDomainCheckUrl));
+            services.AddScoped<IDataServiceIpScan>(a => new DataServiceIpScan(internalVirusTotalIntegrationUrl));
             services.AddScoped<IDataServiceOrder>(a => new DataServiceOrder(internalOrderUrl));
 
             services.AddScoped<IBusinessServiceDomainCheck, BusinessServiceDomainCheck>();
+            services.AddScoped<IBusinessServiceIpScan, BusinessServiceIpScan>();
             services.AddScoped<IBusinessServiceOrder, BusinessServiceOrder>();
 
             services.AddScoped<IAppServiceSiteInvestigationRequest, AppServiceSiteInvestigationRequest>();

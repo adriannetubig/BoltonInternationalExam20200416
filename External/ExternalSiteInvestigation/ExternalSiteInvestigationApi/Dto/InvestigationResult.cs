@@ -8,6 +8,6 @@ namespace ExternalSiteInvestigationApi.Dto
         public bool IsDomainValid { get; set; }
         public string Domain { get; set; }
         public List<IpAddressCheck> IpAddresses { get;set; }
-        
+
     }
 }

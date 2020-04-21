@@ -1,11 +1,11 @@
-using ExternalSiteInvestigationApi.Helper;
+using InternalVirusTotalIntegrationApi.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace ExternalSiteInvestigationApi
+namespace InternalVirusTotalIntegrationApi
 {
     public class Startup
     {
@@ -20,13 +20,11 @@ namespace ExternalSiteInvestigationApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            var internalDomainCheckUrl = Configuration.GetSection("InternalDomainCheckUrl").Get<string>();
-            var internalVirusTotalIntegrationUrl = Configuration.GetSection("InternalVirusTotalIntegrationUrl").Get<string>();
-            var internalOrderUrl = Configuration.GetSection("InternalOrderUrl").Get<string>();
+            var virusTotalUrl = Configuration.GetSection("VirusTotal:Url").Get<string>();
+            var virusTotalApiKey = Configuration.GetSection("VirusTotal:ApiKey").Get<string>();
 
-            Dependency.SetDependency(ref services, internalDomainCheckUrl, internalOrderUrl, internalVirusTotalIntegrationUrl);
+            Dependency.SetDependency(ref services, virusTotalUrl, virusTotalApiKey);
             services.AddSingleton(AutoMapperConfig.Config());
-
             ApiVersioning.SetVersion(ref services);
         }
 
@@ -45,7 +43,7 @@ namespace ExternalSiteInvestigationApi
             app.UseSwagger();
             app.UseSwaggerUI(a =>
             {
-                a.SwaggerEndpoint("/swagger/v1/swagger.json", "External Site Investigator");
+                a.SwaggerEndpoint("/swagger/v1/swagger.json", "Internal Virus Total Integration");
                 a.RoutePrefix = string.Empty;
             });
 
