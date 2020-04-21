@@ -12,11 +12,13 @@ namespace ExternalSiteInvestigationApi.Services
     public class AppServiceSiteInvestigationRequest: IAppServiceSiteInvestigationRequest
     {
         private readonly IBusinessServiceDomainCheck _iBusinessServiceDomainCheck;
+        private readonly IBusinessServiceIpScan _iBusinessServiceIpScan;
         private readonly IBusinessServiceOrder _iBusinessServiceOrder;
 
-        public AppServiceSiteInvestigationRequest(IBusinessServiceDomainCheck iBusinessServiceDomainCheck, IBusinessServiceOrder iBusinessServiceOrder)
+        public AppServiceSiteInvestigationRequest(IBusinessServiceDomainCheck iBusinessServiceDomainCheck, IBusinessServiceIpScan iBusinessServiceIpScan, IBusinessServiceOrder iBusinessServiceOrder)
         {
             _iBusinessServiceDomainCheck = iBusinessServiceDomainCheck;
+            _iBusinessServiceIpScan = iBusinessServiceIpScan;
             _iBusinessServiceOrder = iBusinessServiceOrder;
         }
         public async Task<IActionResult> Create(SiteInvestigationRequest siteInvestigationRequest, CancellationToken cancellationToken)
@@ -38,6 +40,9 @@ namespace ExternalSiteInvestigationApi.Services
             {
                 investigationResult.IpAddresses = domainCheck.IpAddresses;
                 investigationResult.IsDomainValid = true;
+
+                foreach(var ipAddress in domainCheck.IpAddresses)
+                    ipAddress.IpScan = await _iBusinessServiceIpScan.Read(ipAddress.IpAddress, cancellationToken);
             }
 
 
